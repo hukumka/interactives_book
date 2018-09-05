@@ -1,0 +1,554 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Interactives</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="chapter_1_tutorial.html"><strong aria-hidden="true">1.</strong> Usage tutorial</a></li><li><ol class="section"><li><a href="euler/problem.html"><strong aria-hidden="true">1.1.</strong> Problem</a></li><li><a href="euler/c_code.html"><strong aria-hidden="true">1.2.</strong> C code</a></li><li><a href="euler/template.html"><strong aria-hidden="true">1.3.</strong> Page template</a></li><li><a href="euler/graph.html"><strong aria-hidden="true">1.4.</strong> Add graph</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Interactives</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#euler-method-tutorial" id="euler-method-tutorial"><h1>Euler method tutorial</h1></a>
+<p>This tutorial will cover basic usage of crate &quot;interactives&quot; through
+step by step construction of example euler.</p>
+<p>If you encoutered any troubles during this tutorial or experements of your own don't hesitate to create issue on repository page.</p>
+<p>The goal of tutorial is to build web page with following features:</p>
+<ul>
+<li>Display source code of program for solving differential equation.</li>
+<li>Give user ability to execute and debug this code throw interface supplied by web page.</li>
+<li>Display intermediate parts of graph of evaluation goes</li>
+</ul>
+<p>It is breaked into chapter as following:</p>
+<ul>
+<li>chapters 1-[1..3] --- creating basic page
+<ul>
+<li>chapter 1.1 - basic definition of cauchy problem and euler method. If you familiar with basics of numeric analysis you can skip this page.</li>
+<li>chapter 1.2 - construction of c code.</li>
+<li>chapter 1.3 - building a page.</li>
+</ul>
+</li>
+<li>chapter 1.4 - add interactively drawn graph</li>
+</ul>
+<a class="header" href="#cauchy-problem" id="cauchy-problem"><h2>Cauchy problem</h2></a>
+<p>Cauchy problem (in its simplest version) is a task of solving differential equation
+of following kind:</p>
+<p>\[
+\frac{df}{dx}(x) = P(f(x), x)
+\]</p>
+<p>with constrait \( f(x_0) = f_0 \)</p>
+<a class="header" href="#euler-method" id="euler-method"><h2>Euler method</h2></a>
+<p>One of methods to get numeric solution to given problem is to use euler method.</p>
+<p>For given predicate \(P\), values \(x_0\) and \(f_0\), and range [a, b] it constructs
+approximate values of \(f\) for given set of points on [a, b]</p>
+<p>\[
+f_i = f_{i-1} + P(f_{i-1}, x_{i-1}) * \Delta x
+\]</p>
+<p>where \(\Delta x\) is distance between \(x_i\) and \(x_{i-1}\) points. Regulary step is constant, since varying step leads to faster accomulating error and its easier.</p>
+<a class="header" href="#note-its-not-recommended-to-use-euler-method-for-this-problem-in-real-life-it-is-just-used-as-illustration" id="note-its-not-recommended-to-use-euler-method-for-this-problem-in-real-life-it-is-just-used-as-illustration"><h5>Note: it's not recommended to use euler method for this problem in real life. It is just used as illustration.</h5></a>
+<a class="header" href="#c-code" id="c-code"><h1>C code</h1></a>
+<p>For our C part of tutorial we will want to write:</p>
+<ul>
+<li>function for predicate P (defined in previous page)</li>
+<li>main loop calculating approximation</li>
+<li>some way to allocate array (see <a href="#limitations">limitations</a>)</li>
+<li>some way to tell web page we want to draw graph using data we calculated</li>
+</ul>
+<p>But first you will need to create new file &quot;0.c&quot;</p>
+<a class="header" href="#predicate" id="predicate"><h2>predicate</h2></a>
+<p>Let's go with predicate</p>
+<p>\[
+P(f, x) = 2 sqrt(f)
+\]</p>
+<p>corresponding to solution</p>
+<p>\[
+f(x) = x^2
+\]</p>
+<pre><code class="language-C">float P(float f, float x){
+    return f;
+}
+</code></pre>
+<a class="header" href="#main-loop" id="main-loop"><h2>main loop</h2></a>
+<pre><code class="language-C">int main(){
+    float START=0.0;
+    float END=2.0; 
+
+    int COUNT=100;
+    float step = (START-END)/COUNT;
+
+    float x = START;
+    float f = 1.0;
+    
+    float* data = allocate_float(COUNT);
+
+    for(int i=0; i&lt;COUNT; ++i){
+        data[i] = f;
+        f += step * P(f, x);
+        x += step;
+    }
+}
+</code></pre>
+<p>Lets break it step by step:</p>
+<p>Here we define range on which we integrate.</p>
+<pre><code class="language-C">    float START=0.0;
+    float END=2.0; 
+</code></pre>
+<p>Define point net.</p>
+<pre><code class="language-C">    int COUNT=100;
+    float step = (START-END)/COUNT;
+</code></pre>
+<p>Define calculation starting point.</p>
+<pre><code class="language-C">    float x = START;
+    float f = 1.0;
+</code></pre>
+<p>Most magical part of tutorial. For now let just assume that it returns pointer to
+array newly allocated array of COUNT subsequential floats.</p>
+<pre><code class="language-C">    float* data = allocate_float(COUNT);
+</code></pre>
+<p>Evaluation of euler method.</p>
+<pre><code class="language-C">    for(int i=0; i&lt;COUNT; ++i){
+        data[i] = f;
+        f += step * P(f, x);
+        x += step;
+    }
+</code></pre>
+<a class="header" href="#linking" id="linking"><h2>Linking</h2></a>
+<p>So far our code contains one unanotated function: allocate_float;</p>
+<p>To tell our little compiler about it we will use very familiar syntax</p>
+<pre><code class="language-C">float* allocate_float(int size);
+</code></pre>
+<p>This will create a call pointer and request for function with this name in generated page.</p>
+<a class="header" href="#result" id="result"><h2>result</h2></a>
+<p><em>Important</em>: main must be first defined function due to current misimplementation in compiler.</p>
+<pre><code class="language-C">float* allocate_float(int size);
+
+int main(){
+    float START=0.0;
+    float END=2.0; 
+
+    int COUNT=100;
+    float step = (START-END)/COUNT;
+
+    float x = START;
+    float f = 1.0;
+    
+    float* data = allocate_float(COUNT);
+
+    for(int i=0; i&lt;COUNT; ++i){
+        data[i] = f;
+        f += step * P(f, x);
+        x += step;
+    }
+}
+
+float P(float f, float x){
+    return f;
+}
+</code></pre>
+<a class="header" href="#limitations" id="limitations"><h2>Limitations</h2></a>
+<ul>
+<li>No structs</li>
+<li>No type casting operators.</li>
+<li>Comments are not allowed</li>
+<li>Not preprocessor support</li>
+<li>Only supported types are <code>int</code>, <code>float</code>, <code>void</code>, function pointers and various pointers to those.</li>
+<li>No const type modifier</li>
+<li>No enums</li>
+<li>...</li>
+</ul>
+<p>Features below aren't planned to ever be implemented</p>
+<ul>
+<li>Asm blocks</li>
+<li>Defining multiple variables as single statement</li>
+<li>Standart library support</li>
+</ul>
+<p>If you discovered unimplemented feature not mentioned here please create issue on github page <a href="https://github.com/hukumka/interactives">https://github.com/hukumka/interactives</a></p>
+<a class="header" href="#html-templater" id="html-templater"><h1>Html templater</h1></a>
+<a class="header" href="#complete-template-code-can-be-found-in-exampleseulertemplatehtml" id="complete-template-code-can-be-found-in-exampleseulertemplatehtml"><h6>Complete template code can be found in &quot;examples/euler/template.html&quot;</h6></a>
+<p>Create &quot;template.html&quot;</p>
+<p>Let's prepare basic layout for our page.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Tutorial page&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class=&quot;interface&quot;&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>First to make virtual machine work you need to include related javascript into head:</p>
+<pre><code class="language-html">    &lt;script src=&quot;vm/vm.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;{code_js}&lt;/script&gt;
+    &lt;script src=&quot;vm/interface.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>vm.js - javascript implementation of virtual machine</li>
+<li><code>{code_js}</code> - template market to insert all vm related data generated by compiler.</li>
+<li>interface.js - interface layer for virtual machine. Handles breakpoint toggles,
+showing variable on hover and provide function to initialize virtual machine with
+given set of &quot;to be linked&quot; javascript functions.</li>
+</ul>
+<a class="header" href="#page-markdown" id="page-markdown"><h2>page markdown</h2></a>
+<p>Next, we need to add page elements:</p>
+<pre><code class="language-html">    &lt;div class=&quot;interface&quot;&gt;
+        &lt;!-- control panel --&gt;
+        &lt;div id=&quot;controls&quot;&gt;
+            &lt;div id=&quot;flow-control&quot;&gt;
+                &lt;a id=&quot;run&quot;&gt;run&lt;/a&gt;
+                &lt;a id=&quot;step&quot;&gt;step&lt;/a&gt;
+                &lt;a id=&quot;step-in&quot;&gt;step-in&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div id=&quot;variables&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- code --&gt;
+        &lt;div class=&quot;code&quot;&gt;
+            {code_html}
+        &lt;/div&gt;
+    &lt;/div&gt;
+</code></pre>
+<p>Controlls:</p>
+<ul>
+<li>
+<p><code>&lt;a id=&quot;run&quot;&gt;</code> - button to start/continue virtual machine evaluation until breakpoint or exit. Important: id=&quot;run&quot; required by interface.js to attach event.</p>
+</li>
+<li>
+<p><code>&lt;a id=&quot;step&quot;&gt;</code> - button to do one step stepping over function calls if encountered. Important: id=&quot;step&quot; required by interface.js to attach event.</p>
+</li>
+<li>
+<p><code>&lt;a id=&quot;step-in&quot;&gt;</code> - button to do one step. If function call encountered step into in. Important: id=&quot;step-in&quot; required by interface.js to attach event.</p>
+</li>
+<li>
+<p><code>&lt;div id=&quot;variables&quot;&gt;</code> - container for displaying values of variables in current scope. Important: id=&quot;variables&quot; is required by interface.js</p>
+</li>
+</ul>
+<p><code>&lt;div class=&quot;code&quot;&gt;{code_html}&lt;/div&gt;</code> is used to include html representation of code given to compiler into our page.</p>
+<a class="header" href="#linking-1" id="linking-1"><h2>Linking</h2></a>
+<p>We already done a lot of work, but due to such underdeveloped software design our template is still not ready to be somewhat usefull.</p>
+<p>So here we go. Next step is to add new <code>&lt;script&gt;...&lt;/script&gt;</code> block after all other script imports.</p>
+<p>First you'll need to create linkings to functions:</p>
+<pre><code class="language-js">
+functions = {{}}
+
+functions['sqrt'] = {{
+    arg_count: 1,
+    func: function(x){{
+        return Math.sqrt(x)
+    }}
+}}
+</code></pre>
+<p>First line defines dictionary variable functions which will be used to store info about funciton linking.</p>
+<p>Take a notice of doubling '{{' and '}}'. This bracket escaping required by template system. It is advised to write all javascript in separate files and embeded code is used for this tutorial only to demonstrate such detail.</p>
+<p>Next statement marks 'sqrt' item of functions as function taking one argument and executed as</p>
+<pre><code class="language-js">function(x){
+    return Math.sqrt(x)
+}
+</code></pre>
+<p>Our first function ready! Only one more to go.</p>
+<p>Allocation of array is special case of function. Since it needs to know internal structure of virtualmachine, it was hardcoded into it and can be linked as follow:</p>
+<pre><code class="language-js">functions['alloc_float'] = {{
+    arg_count: 1,
+    func: &quot;vm.alloc&quot;
+}}
+</code></pre>
+<p>Where 'vm.alloc' is magical constant. Its <em>important</em> to notice that it suitable only for such types as float, int and pointers. So far it's all supported types, but with shipment of <em>struct</em> feature (and there for appearance of not 1-sized types will be marked as deprecated.</p>
+<a class="header" href="#setup-vm" id="setup-vm"><h2>Setup vm</h2></a>
+<p>Add global variable for storing virtual machine instance, which will be initialized after window loads.</p>
+<pre><code>var vm=null;
+
+window.onload = function(){
+    vm = initialize_vm_interface(functions);
+}
+</code></pre>
+<a class="header" href="#build-the-thing" id="build-the-thing"><h2>Build the thing</h2></a>
+<p>After all done, actual page might be created by running command:</p>
+<pre><code>interactives 0.c -t template.html -o index.html
+</code></pre>
+<p>or using cargo in sources repo:</p>
+<pre><code>cargo run -- 0.c -t template.html -o index.html
+</code></pre>
+<a class="header" href="#graph" id="graph"><h1>Graph</h1></a>
+<p>This page describes how to enchant page we built in previous step by adding graph display.</p>
+<a class="header" href="#modify-code" id="modify-code"><h2>Modify code</h2></a>
+<p>First we need some interface to show page what we want do draw. To do so we'll add new function declaration:</p>
+<pre><code class="language-C">void display(float* array, int size);
+</code></pre>
+<p>and call of this function each iteration of method.</p>
+<pre><code class="language-C">    ...
+    for(int i=0; i&lt;COUNT; ++i){
+        data[i] = f;
+        f += step * P(f, x);
+        x += step;
+
+        display(data, i);
+    }
+    ...
+}
+</code></pre>
+<a class="header" href="#add-plotly-script" id="add-plotly-script"><h2>Add plotly script</h2></a>
+<pre><code>&lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>inside head.</p>
+<a class="header" href="#add-element-where-graph-will-be-contained" id="add-element-where-graph-will-be-contained"><h2>Add element where graph will be contained</h2></a>
+<p>by simply extending our <code>&lt;div class=&quot;interface&quot;&gt;</code> with new child</p>
+<pre><code>&lt;div id=&quot;graph&quot;&gt;&lt;/div&gt;
+</code></pre>
+<a class="header" href="#extracting-data" id="extracting-data"><h2>Extracting data</h2></a>
+<p>Now only thing we have to do is to add function link to ploty (or other library you might prefer) as in previous page...</p>
+<pre><code class="language-js">functions['display'] = {{
+    arg_count: 1,
+    func: function(pointer, size){{
+        console.log(pointer, size);
+        //...
+    }}
+}}
+</code></pre>
+<p>Whawhawait, we receiving two integers? What would we do with them?</p>
+<p>Unfortunatly, after compilation, virtual machine no longer posseses knowlege about variable type. Therefore it is suppling as with what it can,
+and it is our duty to interpret it correcty.</p>
+<p>But, we still can access our array using method vm.get_array.</p>
+<pre><code class="language-js">var y = vm.get_array(pointer, size);
+
+var x = [];
+var STEP = 0.01;
+for(var i=0; i&lt;y.length; ++i){{
+    x.push(i*STEP);
+}}
+
+Plotly.plot(document.getElementById('graph'), [{{x: x, y: y}}]);
+</code></pre>
+<p>With this we can rebuild our page, open it, press run and get terrifying experiance.
+What is this? Page freezes and after centuries passes and it start responding we get what? Billions graph annotations? What the heck?</p>
+<a class="header" href="#fix-it" id="fix-it"><h2>Fix it</h2></a>
+<p>Lets take a look what gone wrong (althrough you might have recognised problem just by glancing on code). Each time vm finishes other iteration of loop it calls display.
+Each time display is called it orders plotly to create new plot on element with id &quot;graph&quot;. And drawing graph is not cheap.</p>
+<p>What we can do, is to delay actual drawing until vm pauses. On top of script block:</p>
+<pre><code class="language-js">var graph = null; // div element for graph
+var graph_data = {{
+    x: null,
+    y: null,
+}};
+</code></pre>
+<p>Then change code of display to simply putting given array into <code>graph_data.y</code>.</p>
+<pre><code class="language-js">func: function(pointer, size){
+    graph_data.y = vm.get_array(pointer, size);
+}
+</code></pre>
+<p>Now, then our page loads we initialize graph variable with its element and draw empty graph on it so we can use redraw plotly function.</p>
+<pre><code class="language-js">window.onload = function(){{
+    vm = initialize_vm_interface(functions);
+    graph = document.getElementById('graph');
+    Plotly.plot(graph, [graph_data], {{margin: {{t: 0}} }});
+}}
+</code></pre>
+<p>And then we need to use callback vm.on_break to draw graph.</p>
+<pre><code class="language-js">window.onload = function(){{
+    vm = initialize_vm_interface(functions);
+    graph = document.getElementById('graph');
+    Plotly.plot(graph, [graph_data], {{margin: {{t: 0}} }});
+
+    vm.on_break = function(){{
+        // if breakpoint reached before and data been supplied.
+        if(graph_data.y === null){{
+            return;
+        }}
+        // update grapth
+        var x = [];
+        var STEP = 0.01;
+        for(var i=0; i&lt;graph_data.y.length; ++i){{
+            x.push(i*STEP);
+        }}
+        graph_data.x = x;
+        Plotly.redraw(graph);
+    }}
+}}
+</code></pre>
+<p>After rebuilding page whose two problems should dissapear.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
